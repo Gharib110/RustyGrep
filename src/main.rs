@@ -1,6 +1,4 @@
 use std::env::args;
-use std::fs::File;
-use std::io::Read;
 use std::process;
 use RustyGrep::{InputArgs, run};
 
@@ -15,13 +13,13 @@ fn main() {
             conf = t;
         }
         Err(err) => {
-            println!("{err}");
+            eprintln!("{err}");
             process::exit(1);
         }
     }
 
     if let Err(e) = run(&conf) {
-        println!("Application Error: {}", e);
+        eprintln!("Application Error: {}", e);
         process::exit(1);
     }
 
