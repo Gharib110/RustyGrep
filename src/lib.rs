@@ -14,8 +14,9 @@ impl<'a> InputArgs<'a> {
         if args.len() < 3 {
             return Err("Not Enough Arguments !");
         }
-        let query = &args[0];
-        let filename = &args[1];
+        let query = &args[1];
+        let filename = &args[2];
+        println!("search result of {query} in {filename}");
         let case_sensitive = env::var("CASE_INSENSITIVE").is_err();
 
         Ok(InputArgs{
